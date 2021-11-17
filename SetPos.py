@@ -1,3 +1,6 @@
+# Tony Leonard
+# G00372842@gmit.ie
+# 29th October 2021
 import win32gui
 
 py1 = 'New Tab - Google Chrome'
@@ -15,7 +18,7 @@ y0 = 0
 x1 = 812
 y1 = 830
 
-x2 = 792 #1530
+x2 = 792  # 1530
 y2 = 0
 x3 = 748
 y3 = 830
