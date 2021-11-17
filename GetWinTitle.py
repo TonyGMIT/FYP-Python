@@ -1,3 +1,6 @@
+# Tony Leonard
+# G00372842@gmit.ie
+# 3rd November 2021
 import win32gui
 
 

@@ -1,5 +1,5 @@
-#not my own written code.
-#Can be seen on: https://dev.to/tkkhhaarree/track-windows-app-usage-time-using-python-h9h
+# Not my own written code.
+# Can be seen on: https://dev.to/tkkhhaarree/track-windows-app-usage-time-using-python-h9h
 
 
 from win32gui import GetForegroundWindow
