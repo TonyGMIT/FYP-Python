@@ -13,10 +13,10 @@ hwnd2 = win32gui.FindWindow(None, ch1)
 x0, y0, x1, y1 = win32gui.GetWindowRect(hwnd1)
 x2, y2, x3, y3 = win32gui.GetWindowRect(hwnd2)
 
-x0 = -7
-y0 = 0
-x1 = 812
-y1 = 830
+x0 = -7  # X-axis
+y0 = -5  # Y-axis
+x1 = 812  # Width
+y1 = 840  # Length
 
 x2 = 792  # 1530
 y2 = 0
