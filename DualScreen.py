@@ -11,7 +11,6 @@ def get_title(title, none):
             print(titles)
             win = titles
             hwnd = win32gui.FindWindow(None, win)
-            x0, y0, x1, y1 = win32gui.GetWindowRect(hwnd)
             x0 = -7     # X-axis
             y0 = -5     # Y-axis
             x1 = 812    # Width
@@ -21,7 +20,6 @@ def get_title(title, none):
             print(titles)
             win = titles
             hwnd = win32gui.FindWindow(None, win)
-            x0, y0, x1, y1 = win32gui.GetWindowRect(hwnd)
             x0 = 792
             y0 = -5
             x1 = 748
@@ -31,31 +29,28 @@ def get_title(title, none):
             print(titles)
             win = titles
             hwnd = win32gui.FindWindow(None, win)
-            x0, y0, x1, y1 = win32gui.GetWindowRect(hwnd)
             x0 = 1530
-            y0 = -5
-            x1 = 748
-            y1 = 840
+            y0 = 22
+            x1 = 1315
+            y1 = 815
             win32gui.MoveWindow(hwnd, x0, y0, x1, y1, True)
         if 'Teams' in titles:
             print(titles)
             win = titles
             hwnd = win32gui.FindWindow(None, win)
-            x0, y0, x1, y1 = win32gui.GetWindowRect(hwnd)
-            x0 = 2840
-            y0 = -5
-            x1 = 1000
-            y1 = 500
+            x0 = 2830
+            y0 = 22
+            x1 = 780
+            y1 = 480
             win32gui.MoveWindow(hwnd, x0, y0, x1, y1, True)
         if 'File Explorer' in titles:
             print(titles)
             win = titles
             hwnd = win32gui.FindWindow(None, win)
-            x0, y0, x1, y1 = win32gui.GetWindowRect(hwnd)
             x0 = 2830
-            y0 = 495
-            x1 = 1020
-            y1 = 600
+            y0 = 520
+            x1 = 780
+            y1 = 550
             win32gui.MoveWindow(hwnd, x0, y0, x1, y1, True)
 
 

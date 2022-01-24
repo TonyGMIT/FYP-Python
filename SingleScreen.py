@@ -11,7 +11,6 @@ def get_title(title, none):
             print(titles)
             win = titles
             hwnd = win32gui.FindWindow(None, win)
-            x0, y0, x1, y1 = win32gui.GetWindowRect(hwnd)
             x0 = -7     # X-axis
             y0 = -5     # Y-axis
             x1 = 812    # Width
@@ -21,7 +20,6 @@ def get_title(title, none):
             print(titles)
             win = titles
             hwnd = win32gui.FindWindow(None, win)
-            x0, y0, x1, y1 = win32gui.GetWindowRect(hwnd)
             x0 = 792
             y0 = -7
             x1 = 748

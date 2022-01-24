@@ -3,17 +3,21 @@
 
 
 from win32gui import GetForegroundWindow
-import psutil
-import time
-import win32process
+import psutil  # cross-platform library for receiving info on running processes
+import time  # provides various functions to manipulate time values
+import win32process  # GetWindowThreadProcessId: Retrieves the identifier of the thread and process that created the specified window.
 
-process_time = {}
-timestamp = {}
+usageTime = {}
+timeStamp = {}
+
 while True:
-    current_app = psutil.Process(win32process.GetWindowThreadProcessId(GetForegroundWindow())[1]).name().replace(".exe", " ")
-    timestamp[current_app] = int(time.time())
-    time.sleep(1)
-    if current_app not in process_time.keys():
-        process_time[current_app] = 0
-    process_time[current_app] = process_time[current_app]+int(time.time())-timestamp[current_app]
-    print(process_time)
+    currentApp = psutil.Process(win32process.GetWindowThreadProcessId(GetForegroundWindow())[1]).name().replace(".exe", "")
+    timeStamp[currentApp] = int(time.time())
+    time.sleep(1)  # delays for 1 second
+    if currentApp not in usageTime.keys():  # .keys() not needed
+        usageTime[currentApp] = 0
+    elif 'explorer' in currentApp:
+        usageTime[currentApp] = 0
+
+    usageTime[currentApp] = usageTime[currentApp] + int(time.time()) - timeStamp[currentApp]
+    print(usageTime)
