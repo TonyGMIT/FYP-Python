@@ -1,15 +1,15 @@
-# Not my own written code.
-# Can be seen on: https://dev.to/tkkhhaarree/track-windows-app-usage-time-using-python-h9h
-
-
 from win32gui import GetForegroundWindow
 import psutil  # cross-platform library for receiving info on running processes
 import time  # provides various functions to manipulate time values
 import win32process  # GetWindowThreadProcessId: Retrieves the identifier of the thread and process that created the specified window.
+import pymongo
+
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+myDB = client["SmartTabs"]
+myInfo = myDB["MouseTracker"]
 
 usageTime = {}
 timeStamp = {}
-
 
 while True:
     currentApp = psutil.Process(win32process.GetWindowThreadProcessId(GetForegroundWindow())[1]).name().replace(".exe", "")
@@ -21,6 +21,6 @@ while True:
 
     usageTime[App] = usageTime[App] + int(time.time()) - timeStamp[App]
 
+    multiDict = {usageTime}
+    myInfo.insert_many(multiDict)
     print(usageTime)
-
-
