@@ -10,6 +10,10 @@ myInfo = myDB["MouseTracker"]
 
 usageTime = {}
 timeStamp = {}
+count1 = 0
+count2 = 0
+count3 = 0
+count4 = 0
 
 while True:
     currentApp = psutil.Process(win32process.GetWindowThreadProcessId(GetForegroundWindow())[1]).name().replace(".exe", "")
@@ -19,8 +23,27 @@ while True:
     if App not in usageTime.keys():  # .keys() not needed
         usageTime[App] = 0
 
+    timeVar2 = int(time.time()) - timeStamp[App]
     usageTime[App] = usageTime[App] + int(time.time()) - timeStamp[App]
+    timeVar = usageTime[App]
 
-    multiDict = {usageTime}
-    myInfo.insert_many(multiDict)
-    print(usageTime)
+    if timeVar % 360 == 0:
+        if "pycharm64" in App:
+            count1 += 0.10
+            print(App, count1)
+        if "chrome" in App:
+            count2 += 0.10
+            print(App, count2)
+        if "Code" in App:  # Visual Studio Code
+            count3 += 0.10
+            print(App, count3)
+        if "Chrome" in App:
+            count4 += 0.10
+            print(App, count4)
+    if timeVar % 600 == 0:
+        multiDict = [{'x1': 'Pycharm', 'y1': count1, 'x2': 'Chrome', 'y2': count2, 'x3': 'Code', 'y3': count3, 'x4': 'File Navigation', 'y4': count4}]
+        myInfo.insert_many(multiDict)
+
+
+
+
