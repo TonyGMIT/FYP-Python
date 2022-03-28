@@ -1,3 +1,6 @@
+# Tony Leonard
+# G00372842@gmit.ie
+# 20th March 2022
 from win32gui import GetForegroundWindow
 import psutil  # cross-platform library for receiving info on running processes
 import time  # provides various functions to manipulate time values
@@ -10,6 +13,7 @@ myInfo = myDB["MouseTracker"]
 
 usageTime = {}
 timeStamp = {}
+
 count1 = 0
 count2 = 0
 count3 = 0
@@ -37,13 +41,12 @@ while True:
         if "Code" in App:  # Visual Studio Code
             count3 += 0.10
             print(App, count3)
-        if "Chrome" in App:
+        if "File Navigation" in App:
             count4 += 0.10
             print(App, count4)
     if timeVar % 600 == 0:
-        multiDict = [{'x1': 'Pycharm', 'y1': count1, 'x2': 'Chrome', 'y2': count2, 'x3': 'Code', 'y3': count3, 'x4': 'File Navigation', 'y4': count4}]
-        myInfo.insert_many(multiDict)
-
-
+        myInfo.delete_many({})
+        newDict = [{'x1': 'Pycharm', 'y1': count1, 'x2': 'Chrome', 'y2': count2, 'x3': 'Code', 'y3': count3,'x4': 'File Navigation', 'y4': count4}]
+        myInfo.insert_many(newDict)
 
 
