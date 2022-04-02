@@ -27,4 +27,8 @@ def get_title(title, none):
             win32gui.MoveWindow(hwnd, x0, y0, x1, y1, True)
 
 
-win32gui.EnumWindows(get_title, None)
+for x in range(3):
+    win32gui.EnumWindows(get_title, None)
+    if x == 2:
+        break
+        print("Done")
