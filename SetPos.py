@@ -1,6 +1,10 @@
 # Tony Leonard
 # G00372842@gmit.ie
 # 29th October 2021
+# ***Update 20th April 2022***
+# This script is not used in final Project.
+# It was used in the testing and research of my project.
+
 import win32gui
 
 py1 = 'New Tab - Google Chrome'

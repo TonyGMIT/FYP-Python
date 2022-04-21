@@ -1,4 +1,9 @@
-
+# Tony Leonard
+# G00372842@gmit.ie
+# 4th March 2022
+# ***Update 20th April 2022***
+# This script is not used in final Project.
+# It was used in the testing and research of my project.
 
 
 import pymongo
