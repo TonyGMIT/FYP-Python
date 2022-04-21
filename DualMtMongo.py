@@ -1,3 +1,10 @@
+# Tony Leonard
+# G00372842@gmit.ie
+# 2nd April 2022
+# ***Update 20th April 2022***
+# This script is used in final Project.
+
+
 import win32gui
 from win32gui import GetForegroundWindow
 import psutil  # cross-platform library for receiving info on running processes
@@ -20,17 +27,17 @@ count5 = 0
 count6 = 0
 count7 = 0
 
-C1 = '.py' or '.c' or '.java'
-C2 = 'Google' or 'Edge' or 'Fox'
-C3 = 'Visual'
-C4 = 'Teams'
-C5 = 'File Explorer'
+C1 = '.py' or '.c' or '.java'  # File extensions for script files and IDEs
+C2 = 'Google' or 'Edge' or 'Fox'  # Popular browser types
+C3 = 'Visual'  # Formatter for Visual Studio Code
+C4 = 'Teams'   # Formatter for Microsoft Teams
+C5 = 'File Explorer'  # Formatter for File Explorer
 
 
 def get_title(title, none):
     if win32gui.IsWindowVisible(title):
         titles = (win32gui.GetWindowText(title))
-        if C1 in titles:  # Coding IDE Formatter
+        if C1 in titles:  # Coding IDE positioning
             win = titles
             hwnd = win32gui.FindWindow(None, win)
             x0 = 1530
@@ -57,9 +64,9 @@ def get_title(title, none):
         if C4 in titles:
             win = titles
             hwnd = win32gui.FindWindow(None, win)
-            x0 = 2830
+            x0 = 2838
             y0 = 0
-            x1 = 1010
+            x1 = 1000
             y1 = 480
             win32gui.MoveWindow(hwnd, x0, y0, x1, y1, True)
         if C5 in titles:
@@ -80,19 +87,17 @@ print("Done")
 
 while True:
     currentApp = psutil.Process(win32process.GetWindowThreadProcessId(GetForegroundWindow())[1]).name().replace(".exe", "")
-    App = currentApp.replace("explorer", "File Navigation")  # changes explorer to file navigation to represent both file explorer and desktop navigation
+    App = currentApp.replace("explorer", "File Navigation")
     timeStamp[App] = int(time.time())
     time.sleep(1)  # delays for 1 second
     if App not in usageTime.keys():  # .keys() not needed
         usageTime[App] = 0
-
-    timeVar2 = int(time.time()) - timeStamp[App]
     usageTime[App] = usageTime[App] + int(time.time()) - timeStamp[App]
     timeVar = usageTime[App]
 
-    if timeVar % 360 == 0:
+    if timeVar % 6 == 0:  # TimeVar should be set to 360 (6 minutes) but for testing and demonstration purposes it will be set to 6 (6 seconds)
         if "pycharm64" in App:
-            count1 += 0.10
+            count1 += 0.10  # The counts are set to one tenth of an hour
             print(App, count1)
         if "chrome" in App:
             count2 += 0.10
@@ -112,7 +117,10 @@ while True:
         if "Teams" in App:
             count7 += 0.10
             print(App, count7)
-    if timeVar % 600 == 0:
+    if timeVar % 10 == 0:  # TimeVar should be set to 600 (10 minutes) but for testing and demonstration purposes it will be set to 10 (10 seconds)
+        total = count1 + count2 + count3
         myInfo.delete_many({})
-        newDict = [{'x1': 'Pycharm', 'y1': count1, 'x2': 'Chrome', 'y2': count2, 'x3': 'Code', 'y3': count3, 'x4': 'File Navigation', 'y4': count4, 'x5': 'Games', 'y5': count5, 'x6': 'Discord', 'y6': count6, 'x7': 'Teams', 'y7': count7}]
+        newDict = [{'x1': 'Pycharm', 'y1': count1, 'x2': 'Chrome', 'y2': count2, 'x3': 'Code', 'y3': count3,
+                    'x4': 'File Navigation', 'y4': count4, 'x5': 'Games', 'y5': count5, 'x6': 'Discord', 'y6': count6,
+                    'x7': 'Teams', 'y7': count7, 't1': total}]
         myInfo.insert_many(newDict)
