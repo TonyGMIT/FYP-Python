@@ -118,7 +118,7 @@ while True:
             count7 += 0.10
             print(App, count7)
     if timeVar % 10 == 0:  # TimeVar should be set to 600 (10 minutes) but for testing and demonstration purposes it will be set to 10 (10 seconds)
-        total = count1 + count2 + count3
+        total = count1 + count2 + count3 + count4 + count5 + count6 + count7
         myInfo.delete_many({})
         newDict = [{'x1': 'Pycharm', 'y1': count1, 'x2': 'Chrome', 'y2': count2, 'x3': 'Code', 'y3': count3,
                     'x4': 'File Navigation', 'y4': count4, 'x5': 'Games', 'y5': count5, 'x6': 'Discord', 'y6': count6,
