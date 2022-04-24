@@ -95,7 +95,7 @@ while True:
     usageTime[App] = usageTime[App] + int(time.time()) - timeStamp[App]
     timeVar = usageTime[App]
 
-    if timeVar % 6 == 0:  # TimeVar should be set to 360 (6 minutes) but for testing and demonstration purposes it will be set to 6 (6 seconds)
+    if timeVar % 1 == 0:  # TimeVar should be set to 360 (6 minutes) but for testing and demonstration purposes it will be set to 1 (1 second)
         if "pycharm64" in App:
             count1 += 0.10  # The counts are set to one tenth of an hour
             print(App, count1)
@@ -117,7 +117,7 @@ while True:
         if "Teams" in App:
             count7 += 0.10
             print(App, count7)
-    if timeVar % 10 == 0:  # TimeVar should be set to 600 (10 minutes) but for testing and demonstration purposes it will be set to 10 (10 seconds)
+    if timeVar % 5 == 0:  # TimeVar should be set to 600 (10 minutes) but for testing and demonstration purposes it will be set to 5 (5 seconds)
         total = count1 + count2 + count3 + count4 + count5 + count6 + count7
         myInfo.delete_many({})
         newDict = [{'x1': 'Pycharm', 'y1': count1, 'x2': 'Chrome', 'y2': count2, 'x3': 'Code', 'y3': count3,
